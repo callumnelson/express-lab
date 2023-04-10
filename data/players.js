@@ -6944,3 +6944,7 @@ const playerStats = [
     "PTS": 2.8
   }
 ]
+
+export {
+  playerStats
+}

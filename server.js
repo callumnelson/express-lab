@@ -1,8 +1,10 @@
 // import modules
 
 import express from 'express'
-//Destructure the imported object
+
+//Destructure the imported objects
 import { nbaTeams } from './data/teams.js'
+import { playerStats } from './data/players.js'
 
 // create Express app
 
@@ -26,7 +28,9 @@ app.get('/home', (req, res) => {
 })
 
 app.get('/teams', (req, res) => {
-  res.send('<h1>Welcome to the teams page</h1>')
+  res.render('teams/index', {
+    teams: nbaTeams
+  })
 })
 
 app.get('/players', (req, res) => {
