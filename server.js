@@ -34,7 +34,9 @@ app.get('/teams', (req, res) => {
 })
 
 app.get('/players', (req, res) => {
-  res.send('<h1>Welcome to the players page</h1>')
+  res.render('players/index', {
+    players: playerStats
+  })
 })
 
 // tell the app to listen on port 3000
