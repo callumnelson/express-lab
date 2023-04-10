@@ -17,6 +17,21 @@ app.set('view engine', 'ejs')
 
 // mount routes
 
+app.get('/', (req, res) => {
+  res.render('home')
+})
+
+app.get('/home', (req, res) => {
+  res.redirect('/')
+})
+
+app.get('/teams', (req, res) => {
+  res.send('<h1>Welcome to the teams page</h1>')
+})
+
+app.get('/players', (req, res) => {
+  res.send('<h1>Welcome to the players page</h1>')
+})
 
 // tell the app to listen on port 3000
 
