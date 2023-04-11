@@ -20,11 +20,11 @@ app.set('view engine', 'ejs')
 // mount routes
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.redirect('home')
 })
 
 app.get('/home', (req, res) => {
-  res.redirect('/')
+  res.render('home')
 })
 
 app.get('/teams', (req, res) => {
@@ -40,7 +40,7 @@ app.get('/players', (req, res) => {
   })
 })
 
-app.get('/players/:team', (req, res) => {
+app.get('/:team/players', (req, res) => {
   let filteredPlayers = playoffPlayers.filter(player => player.Tm === req.params.team)
   if (filteredPlayers.length){
     res.render('players/oneTeam', {

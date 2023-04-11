@@ -10,7 +10,7 @@
   <h1>These are the NBA teams</h1>
   <% teams.forEach( team => { %>
     <li>
-      <%= team.teamName %>
+      <a href="<%= team.abbreviation %>/players"><%= team.teamName %></a>
     </li>
   <% }) %>
 </body>
