@@ -43,11 +43,11 @@ app.get('/players', (req, res) => {
 app.get('/:team/players', (req, res) => {
   let filteredPlayers = playoffPlayers.filter(player => player.Tm === req.params.team)
   if (filteredPlayers.length){
-    res.render('players/oneTeam', {
+    res.render('teams/oneTeam', {
       teamPlayers : filteredPlayers,
       teamName : req.params.team
     })
-  } else res.redirect('/teams')
+  } else res.send(`<h1>Womp, ${req.params.team} didn't make the playoffs</h1>`)
 })
 
 // tell the app to listen on port 3000
