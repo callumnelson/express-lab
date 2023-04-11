@@ -4,7 +4,7 @@ import express from 'express'
 
 //Destructure the imported objects
 import { nbaTeams } from './data/teams.js'
-import { playerStats } from './data/players.js'
+import { playoffPlayers } from './data/players.js'
 
 // create Express app
 
@@ -29,22 +29,25 @@ app.get('/home', (req, res) => {
 
 app.get('/teams', (req, res) => {
   res.render('teams/index', {
-    teams: nbaTeams
+    teams: nbaTeams,
+    players : playoffPlayers
   })
 })
 
 app.get('/players', (req, res) => {
   res.render('players/index', {
-    players: playerStats
+    players: playoffPlayers
   })
 })
 
 app.get('/players/:team', (req, res) => {
-  let filteredPlayers = playerStats.filter(player => player.Tm === req.params.team)
-  res.render('players/oneTeam', {
-    teamPlayers : filteredPlayers,
-    teamName : req.params.team
-  })
+  let filteredPlayers = playoffPlayers.filter(player => player.Tm === req.params.team)
+  if (filteredPlayers.length){
+    res.render('players/oneTeam', {
+      teamPlayers : filteredPlayers,
+      teamName : req.params.team
+    })
+  } else res.redirect('/teams')
 })
 
 // tell the app to listen on port 3000

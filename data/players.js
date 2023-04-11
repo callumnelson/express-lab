@@ -1,4 +1,4 @@
-const playerStats = [
+const playoffPlayers = [
   {
     "Rk": 1,
     "Player": "Precious Achiuwa",
@@ -6946,5 +6946,5 @@ const playerStats = [
 ]
 
 export {
-  playerStats
+  playoffPlayers
 }
