@@ -39,6 +39,14 @@ app.get('/players', (req, res) => {
   })
 })
 
+app.get('/players/:team', (req, res) => {
+  let filteredPlayers = playerStats.filter(player => player.Tm === req.params.team)
+  res.render('players/oneTeam', {
+    teamPlayers : filteredPlayers,
+    teamName : req.params.team
+  })
+})
+
 // tell the app to listen on port 3000
 
 app.listen(3000, () => {
